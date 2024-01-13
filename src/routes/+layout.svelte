@@ -48,7 +48,7 @@
 	</div>
 </header>
 
-<!-- {#each stars as { x, y }, index}
+{#each stars as { x, y }, index}
 	<div class="star" style={`left: ${x}px; top: ${y}px;`}>
 		<svg xmlns="http://www.w3.org/2000/svg" width="18px" height="16px" viewBox="0 0 576 512">
 			<path
@@ -57,7 +57,7 @@
 			/>
 		</svg>
 	</div>
-{/each} -->
+{/each}
 
 <main>
 	<slot />
