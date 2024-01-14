@@ -16,7 +16,7 @@
 		placeholder="Username"
 		required
 		spellcheck="false"
-		class="rounded font-semibold px-4 w-full outline-none h-10 mb-6 placeholder:font-medium placeholder:text-accent text-accent"
+		class="rounded font-semibold px-4 w-full outline-none h-10 mb-6 placeholder:font-medium placeholder:text-bg text-bg"
 	/>
 	<input
 		name="email"
@@ -24,7 +24,7 @@
 		placeholder="Email"
 		required
 		spellcheck="false"
-		class="rounded font-semibold px-4 w-full outline-none h-10 mb-6 placeholder:font-medium placeholder:text-accent text-accent"
+		class="rounded font-semibold px-4 w-full outline-none h-10 mb-6 placeholder:font-medium placeholder:text-bg text-bg"
 	/>
 	<input
 		name="password"
@@ -32,7 +32,7 @@
 		placeholder="Password"
 		required
 		spellcheck="false"
-		class="rounded font-semibold px-4 w-full outline-none h-10 mb-4 placeholder:font-medium placeholder:text-accent text-accent"
+		class="rounded font-semibold px-4 w-full outline-none h-10 mb-4 placeholder:font-medium placeholder:text-bg text-bg"
 	/>
 
 	<button

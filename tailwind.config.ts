@@ -14,6 +14,7 @@ export default {
         'Poppins': ['Poppins', 'sans-serif'],
       },
       textColor: {
+        'bg': '#0c0c10',
         'primary': 'hsl(260, 7%, 92%)',
         'secondary': '#BECFC2',
         'accent': '#6656bf',
