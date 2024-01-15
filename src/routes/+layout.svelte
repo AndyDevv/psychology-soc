@@ -38,7 +38,7 @@
 		<ul class="flex items-center justify-center gap-x-10 font-medium">
 			<li><a href="/services">Services</a></li>
 			<li><a href="/about">About</a></li>
-			<li><a href="/">Health library</a></li>
+			<li><a href="/health-library">Health library</a></li>
 		</ul>
 	</div>
 	<div class="justify-self-end">
