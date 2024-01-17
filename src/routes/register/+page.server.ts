@@ -1,14 +1,21 @@
-import type { PageServerLoad, Actions } from './$types';
+import type { Actions } from './$types';
+import { fail, redirect } from '@sveltejs/kit';
+import { register } from '$lib/server/services/register';
 
 export const actions = {
-    default: async (event) => {
-        const data = await event.request.formData();
+	default: async (event) => {
+		const data = await event.request.formData();
 
-        const username = <string>data.get('username');
-        const email = <string>data.get('email');
-        const password = <string>data.get('password');
+		const username = (<string>data.get('username')).trim();
+		const email = (<string>data.get('email'))?.trim();
+		const password = <string>data.get('password');
 
+		const { error } = await register(username, email, password);
 
-    }
+		if (error.message) {
+			return fail(400, error);
+		}
+
+		throw redirect(307, '/')
+	}
 } satisfies Actions;
-
