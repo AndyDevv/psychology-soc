@@ -1,6 +1,14 @@
 import { Schema, model } from 'mongoose';
 import bcrypt from 'bcrypt';
 
+interface IUser extends Document {
+    username: string;
+    email: string;
+    password: string;
+    comparePassword: (password: string) => Promise<boolean>;
+}
+
+
 const schema = new Schema({
     username: {
         type: String,
@@ -36,4 +44,4 @@ schema.method('comparePassword', async function (password: string) {
     return bcrypt.compare(password, this.password);
 });
 
-export default model('user', schema);
+export default model<IUser>('user', schema);

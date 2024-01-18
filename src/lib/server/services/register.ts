@@ -3,8 +3,8 @@ import User from '$db/models/user.model';
 import bcrypt from 'bcrypt';
 
 export async function register(username: string, email: string, password: string) {
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const user = new User({ username, email, password: hashedPassword });
+    // const hashedPassword = await bcrypt.hash(password, 10);
+    const user = new User({ username, email, password });
 
     try {
         await user.save();
