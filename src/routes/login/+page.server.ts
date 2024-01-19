@@ -11,9 +11,7 @@ export const actions = {
 
         const { error } = await login(email, password);
 
-        console.log(error);
-
-        if (error.message) {
+        if (error) {
             return fail(400, error);
         }
 

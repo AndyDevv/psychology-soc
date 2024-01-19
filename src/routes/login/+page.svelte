@@ -1,5 +1,10 @@
 <script lang="ts">
+	import type { ActionData } from './$types';
 	import { enhance } from '$app/forms';
+	import { MONGO_ERRORS, ERROR_TYPE } from '$lib/utils/constants';
+	import FormInput from '$components/FormInput.svelte';
+
+	export let form: ActionData;
 </script>
 
 <form
@@ -8,22 +13,10 @@
 	class="flex flex-col items-center justify-center gap-y-4 max-w-[400px] mx-auto p-8 rounded glassmorph mt-36"
 >
 	<h1 class="text-3xl font-bold mb-4">Login</h1>
-	<input
-		name="email"
-		type="email"
-		placeholder="Email"
-		required
-		spellcheck="false"
-		class="rounded font-semibold px-4 w-full outline-none h-10 mb-6 placeholder:font-medium placeholder:text-bg text-bg"
-	/>
-	<input
-		name="password"
-		type="password"
-		placeholder="Password"
-		required
-		spellcheck="false"
-		class="rounded font-semibold px-4 w-full outline-none h-10 mb-4 placeholder:font-medium placeholder:text-bg text-bg"
-	/>
+
+	<FormInput name="email" type="email" placeholder="Email" item={form?.email} />
+
+	<FormInput name="password" type="password" placeholder="Password" item={form?.password} />
 
 	<button
 		type="submit"

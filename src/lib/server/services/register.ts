@@ -1,24 +1,72 @@
-import { ERROR_CODES } from '$lib/server/constants';
+import { ERROR_TYPE, MONGO_ERRORS } from '$lib/utils/constants';
 import User from '$db/models/user.model';
-import bcrypt from 'bcrypt';
+import { z } from 'zod';
+// import { objectArraysStringify } from '$lib/utils/basic';
 
-export async function register(username: string, email: string, password: string) {
-    // const hashedPassword = await bcrypt.hash(password, 10);
+export const registerSchema = z
+    .object({
+        username: z
+            .string({ required_error: 'Username is required' })
+            .min(1, { message: 'Username is required' })
+            .max(64, { message: 'Username must be less than 64 characters' })
+            .trim(),
+        email: z
+            .string({ required_error: 'Email is required' })
+            .min(1, { message: 'Email is required' })
+            .max(64, { message: 'Email must be less than 64 characters' })
+            .email({ message: 'Email must be a valid email address' }),
+        password: z
+            .string({ required_error: 'Password is required' })
+            .min(8, { message: 'Password must be at least 6 characters' })
+            .max(32, { message: 'Password must be less than 32 characters' })
+            .trim(),
+        passwordConfirm: z
+            .string({ required_error: 'Password is required' })
+            .min(8, { message: 'Password must be at least 6 characters' })
+            .max(32, { message: 'Password must be less than 32 characters' })
+            .trim(),
+    })
+    .superRefine(({ passwordConfirm, password }, ctx) => {
+        if (passwordConfirm !== password) {
+            ctx.addIssue({
+                code: 'custom',
+                message: 'Password and Confirm Password must match',
+                path: ['password']
+            });
+            ctx.addIssue({
+                code: 'custom',
+                message: 'Password and Confirm Password must match',
+                path: ['passwordConfirm']
+            });
+        }
+    });
+
+export async function register(username: string, email: string, password: string, passwordConfirm: string) {
     const user = new User({ username, email, password });
 
     try {
+        registerSchema.parse({ username, email, password, passwordConfirm });
+    } catch (err) {
+        const { fieldErrors: errors } = (<any>err).flatten();
+        // console.log(`VALIDATION_ERRORS:`, (<any>err).flatten());
+
+        return { error: errors }
+    }
+
+    try {
         await user.save();
-        return { error: { message: null } }
     } catch (err) {
         const error = <any>err;
 
-        console.log(error);
+        // console.log(`DB_ERRORS: `, error, error.code, error.keyValue);
 
         const key = <'email' | 'username'>Object.keys(error.keyValue)[0];
 
-        if (error.code === ERROR_CODES.DUPLICATE_KEY) {
-            return { error: { message: `${key} is already taken`, [key]: error.keyValue[key], code: error.code } }
+        if (error.code === MONGO_ERRORS.DUPLICATE_KEY) {
+            return { error: { [key]: `${key} does already exist` } }
         }
-        return { error: { message: 'Something went wrong', code: error.code } };
+        return { error };
     }
+
+    return { error: null };
 }

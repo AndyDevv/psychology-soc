@@ -1,4 +1,4 @@
-import { ERROR_CODES } from '$lib/server/constants';
+import { MONGO_ERRORS, ERROR_TYPE } from '$lib/utils/constants';
 import User from '$db/models/user.model';
 import bcrypt from 'bcrypt';
 
@@ -6,13 +6,13 @@ export async function login(email: string, password: string) {
     const user = await User.findOne({ email });
 
     if (!user) {
-        return { error: { message: 'User not found' } };
+        return { error: { email: 'Email not found' } };
     }
 
     const isPasswordValid = await user.comparePassword(password);
 
     if (!isPasswordValid) {
-        return { error: { message: 'Invalid password' } };
+        return { error: { password: 'Invalid password' } };
     }
-    return { error: { message: null } };
+    return { error: null };
 }
