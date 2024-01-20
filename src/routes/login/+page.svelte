@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { ActionData } from './$types';
 	import { enhance } from '$app/forms';
-	import { MONGO_ERRORS, ERROR_TYPE } from '$lib/utils/constants';
 	import FormInput from '$components/FormInput.svelte';
 
 	export let form: ActionData;

@@ -11,10 +11,11 @@ export const actions = {
 		const password = <string>data.get('password');
 		const passwordConfirm = <string>data.get('passwordConfirm');
 
-		const { error } = await register(username, email, password, passwordConfirm);
-		console.log(`Errors:`, error);
+		const { error, token: user } = await register(username, email, password, passwordConfirm);
+		// console.log(`Errors:`, error);
 
 		if (error) {
+			// event.locals.token = "";
 			return fail(400, error);
 		}
 
