@@ -1,7 +1,7 @@
-import { ERROR_TYPE, MONGO_ERRORS } from '$lib/utils/constants';
+import { MONGO_ERRORS } from '$lib/utils/constants';
 import User from '$db/models/user.model';
 import { z } from 'zod';
-import { generateToken } from './token';
+import { createAccesToken } from './token';
 // import { objectArraysStringify } from '$lib/utils/basic';
 
 export const registerSchema = z
@@ -51,7 +51,7 @@ export async function register(username: string, email: string, password: string
         const { fieldErrors: errors } = (<any>err).flatten();
         // console.log(`VALIDATION_ERRORS:`, (<any>err).flatten());
 
-        return { error: errors, token: null }
+        return { error: errors, accessToken: null, user: null };
     }
 
     try {
@@ -66,8 +66,8 @@ export async function register(username: string, email: string, password: string
         if (error.code === MONGO_ERRORS.DUPLICATE_KEY) {
             return { error: { [key]: `${key} does already exist` } }
         }
-        return { error, token: null };
+        return { error, accessToken: null, user: null };
     }
 
-    return { error: null, token: generateToken(user.id) };
+    return { error: null, accessToken: createAccesToken(user.id), user: { id: user.id, username: user.username, email: user.email } };
 }
