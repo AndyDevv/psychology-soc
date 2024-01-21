@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { LayoutData } from './$types';
 	import { onMount } from 'svelte';
 	import { inRange } from '$lib';
 	import Star from '$components/star.svelte';
@@ -19,6 +20,10 @@
 	];
 
 	// TODO: Resize stars on window resize with scale Factor
+
+	export let data: LayoutData;
+
+	$: console.log(data);
 </script>
 
 <div id="ray">

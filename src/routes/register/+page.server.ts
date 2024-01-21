@@ -12,13 +12,13 @@ export const actions = {
 		const password = <string>data.get('password');
 		const passwordConfirm = <string>data.get('passwordConfirm');
 
-		const { error, accessToken, user } = await register(username, email, password, passwordConfirm);
+		const { error, accessToken, refreshToken } = await register(username, email, password, passwordConfirm);
 
-		if (error || !accessToken || !user) {
+		if (error || !accessToken) {
 			return fail(400, error);
 		}
 
-		event.cookies.set('refreshToken', createRefreshToken(user.id), {
+		event.cookies.set('refreshToken', refreshToken, {
 			path: '/',
 			httpOnly: true,
 			sameSite: process.env.NODE_ENV === 'production' ? 'strict' : 'lax',
@@ -26,7 +26,13 @@ export const actions = {
 			maxAge: 60 * 60 * 24 * 7, // 7 days
 		});
 
-		event.locals.accessToken = accessToken;
+		event.cookies.set('accessToken', accessToken, {
+			path: '/',
+			httpOnly: true,
+			sameSite: process.env.NODE_ENV === 'production' ? 'strict' : 'lax',
+			secure: process.env.NODE_ENV === 'production',
+			maxAge: 60 * 15, // 15 minutes
+		});
 
 		throw redirect(307, '/')
 	}
