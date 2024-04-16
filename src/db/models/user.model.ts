@@ -23,6 +23,13 @@ const schema = new Schema({
         type: String,
         required: true,
     },
+    health: {
+        details: {
+            bloodType: String,
+            height: String,
+            weight: String,
+        }
+    }
 });
 
 schema.pre('save', async function (next) {

@@ -17,6 +17,7 @@
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@types/bcrypt": "^5.0.2",
 		"@types/eslint": "8.56.0",
+		"@types/three": "^0.163.0",
 		"@typescript-eslint/eslint-plugin": "^6.0.0",
 		"@typescript-eslint/parser": "^6.0.0",
 		"autoprefixer": "^10.4.16",
@@ -39,6 +40,8 @@
 		"bcrypt": "^5.1.1",
 		"jsonwebtoken": "^9.0.2",
 		"mongoose": "^8.0.4",
+		"svelte-cubed": "^0.2.1",
+		"three": "^0.163.0",
 		"zod": "^3.22.4"
 	}
 }

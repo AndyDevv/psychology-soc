@@ -2,6 +2,7 @@ import { connectToDB } from "$db/mongo";
 import { ACCESS_JWT_SECRET, REFRESH_JWT_SECRET } from '$env/static/private'
 import { createRefreshToken, createAccessToken } from '$lib/server/services/token'
 import type { JWT, User } from '$lib/utils/types'
+import { redirect } from "@sveltejs/kit";
 import jwt from 'jsonwebtoken';
 
 connectToDB().then(() => console.log("Connected to DB")).catch(err => console.log(err));
@@ -11,7 +12,7 @@ export async function handle({ event, resolve }) {
     const accessToken = event.cookies.get('accessToken');
     const refreshToken = event.cookies.get('refreshToken');
 
-    console.log(`accessToken: ${accessToken}, refreshToken: ${refreshToken}`);
+    // console.log(`accessToken: ${accessToken}, refreshToken: ${refreshToken}`);
 
     type payload = JWT.Payload & User;
 
@@ -35,6 +36,7 @@ export async function handle({ event, resolve }) {
         } catch (err) {
             // Refresh token is invalid, handle accordingly
             // For example, redirect to login or clear the refresh token
+            throw redirect(301, '/login');
         }
     }
 

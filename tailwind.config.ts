@@ -5,10 +5,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        'background': '#0c0c10',
-        'primary': '#b2adce',
-        'secondary': '#3c336c',
-        'accent': '#6656bf',
+        'background': '#242247',
+        'primary': '#2e2c54',
+        'secondary': '#393760',
+        'accent': '#8971e6',
         'error': "#e85d75"
       },
       fontFamily: {
@@ -17,8 +17,8 @@ export default {
       textColor: {
         'bg': '#0c0c10',
         'primary': 'hsl(260, 7%, 92%)',
-        'secondary': '#BECFC2',
-        'accent': '#6656bf',
+        'secondary': '#797992',
+        // 'accent': '#6656bf',
       }
     },
   },
