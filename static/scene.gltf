@@ -1,0 +1,396 @@
+{
+  "accessors": [
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 19575,
+      "max": [
+        6.940722465515137,
+        8.768247604370117,
+        5.556610107421875
+      ],
+      "min": [
+        -6.940722465515137,
+        -8.768247604370117,
+        -5.5565643310546875
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 234900,
+      "componentType": 5126,
+      "count": 19575,
+      "max": [
+        1.0,
+        0.9968647956848145,
+        0.9997246265411377
+      ],
+      "min": [
+        -1.0,
+        -0.999197781085968,
+        -0.9996155500411987
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 19575,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 469800,
+      "componentType": 5126,
+      "count": 4728,
+      "max": [
+        1.1909396648406982,
+        3.02644944190979,
+        4.399594306945801
+      ],
+      "min": [
+        -1.1568785905838013,
+        -4.434877395629883,
+        -3.8688621520996094
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 526536,
+      "componentType": 5126,
+      "count": 4728,
+      "max": [
+        0.999966025352478,
+        0.9988327026367188,
+        0.9999625086784363
+      ],
+      "min": [
+        -0.9999926090240479,
+        -0.9981387853622437,
+        -0.9999942183494568
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 78300,
+      "componentType": 5125,
+      "count": 4728,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 583272,
+      "componentType": 5126,
+      "count": 7370,
+      "max": [
+        4.287874221801758,
+        6.867961406707764,
+        -2.0285186767578125
+      ],
+      "min": [
+        -4.2878737449646,
+        1.0303173065185547,
+        -6.30743408203125
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 671712,
+      "componentType": 5126,
+      "count": 7370,
+      "max": [
+        1.0,
+        0.9949674010276794,
+        0.9996790289878845
+      ],
+      "min": [
+        -1.0,
+        -0.9914236068725586,
+        -0.9997006058692932
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 97212,
+      "componentType": 5125,
+      "count": 7884,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "omg3d (https://sketchfab.com/omg3d)",
+      "license": "SKETCHFAB Standard (https://sketchfab.com/licenses)",
+      "source": "https://sketchfab.com/3d-models/brain-low-poly-a249c205828a4509aa9fb2908e1b61b6",
+      "title": "Brain Low Poly"
+    },
+    "generator": "Sketchfab-12.68.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 128748,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 760152,
+      "byteOffset": 128748,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 888900,
+      "uri": "scene.bin"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Brain",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.775209617965722,
+          0.29281796625662126,
+          0.3839648992776513,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.056431607172172264
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "medulla",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.6281055094861525,
+          0.16686141333243662,
+          0.098020817537471,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.12939368513215257
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "cerebellum",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.7665614189803083,
+          0.0727860907233215,
+          0.0727860907233215,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.1780350704388061
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Brain_Brain_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0
+          },
+          "indices": 2,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "medulla_medulla_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 4,
+            "POSITION": 3
+          },
+          "indices": 5,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "cerebellum_cerebellum_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 7,
+            "POSITION": 6
+          },
+          "indices": 8,
+          "material": 2,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        -8.06033905629232e-18,
+        -0.0009280633530581728,
+        0.9999995827674866,
+        0.0,
+        -1.0,
+        1.0842021724862262e-19,
+        -3.2500656833125464e-16,
+        0.0,
+        1.0842021724855044e-19,
+        -0.9999995827674866,
+        -0.0009280633530581728,
+        0.0,
+        1.0359212944920093e-18,
+        -19.103086471557617,
+        -0.008864439092580745,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "2690d8b92e25410d802ccef45580a005.fbx"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4,
+        5,
+        7
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        11.251728057861328,
+        1.0
+      ],
+      "name": "Brain"
+    },
+    {
+      "mesh": 0,
+      "name": "Brain_Brain_0"
+    },
+    {
+      "children": [
+        6
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.02453218214213848,
+        2.139539957046509,
+        -5.088083744049072,
+        1.0
+      ],
+      "name": "medulla"
+    },
+    {
+      "mesh": 1,
+      "name": "medulla_medulla_0"
+    },
+    {
+      "children": [
+        8
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.23295913315269e-07,
+        -0.018471715971827507,
+        0.03322792053222656,
+        1.0
+      ],
+      "name": "cerebellum"
+    },
+    {
+      "mesh": 2,
+      "name": "cerebellum_cerebellum_0"
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}

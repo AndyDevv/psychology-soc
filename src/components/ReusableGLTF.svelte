@@ -6,9 +6,9 @@
 
 	// Component Props
 	export let modelURL: string;
-	export let scale = [1, 1, 1];
-	export let position = [0, 0, 0];
-	export let rotation = [0, 0, 0];
+	export let scale = [1, 1, 1] as [number, number, number];
+	export let position = [0, 0, 0] as [number, number, number];
+	export let rotation = [0, 0, 0] as [number, number, number];
 	export let name = 'UniqueName_' + Math.random() + Date.now();
 
 	let model: any = null;

@@ -23,11 +23,10 @@ const schema = new Schema({
         type: String,
         required: true,
     },
-    health: {
-        details: {
-            bloodType: String,
-            height: String,
-            weight: String,
+    treatment: {
+        type: Array,
+        pills: {
+            name: String,
         }
     }
 });
