@@ -1,13 +1,18 @@
 <script lang="ts">
-	import type { PageData } from './$types';
+	import { enhance } from '$app/forms';
+	import type { PageData, ActionData } from './$types';
 
 	export let data: PageData;
+
+	export let form: ActionData;
+
+	$: console.log(form);
 </script>
 
 <div>
-	<section class="text-center">
+	<section class="text-center mb-4">
 		<h1 class="text-5xl font-bold mb-6">Knižnica</h1>
-		<form class="flex justify-center">
+		<form class="flex justify-center" method="POST" use:enhance>
 			<button type="submit" class="bg-icon rounded-tl-3xl rounded-bl-3xl px-4">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-8 h-8">
 					<path
@@ -26,5 +31,20 @@
 			/>
 		</form>
 	</section>
-	<section></section>
+	<section class="flex flex-col items-center justify-center gap-y-6 w-96 mx-auto">
+		{#if form?.error}
+			{form?.error}
+			<!-- <p>test</p> -->
+		{/if}
+		{#each form?.body?.hasPart || [] as part}
+			<!-- <p>{part.description}</p> -->
+			<p class="bg-background p-4">
+				{part.description}
+				<span class="font-bold">
+					Find more
+					<a href={part.url} target="_blank" class="underline">here</a>
+				</span>
+			</p>
+		{/each}
+	</section>
 </div>
